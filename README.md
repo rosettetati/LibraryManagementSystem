@@ -138,20 +138,37 @@ This milestone made the application more organized and prepared it for future de
 4. Use the console menu to manage books.
 5. The application saves its data in the `books.json` file.
 
-## 6. Planned Milestones
+## Milestone 03 – Layered Console Application
 
-### Milestone 03 — Layered Multi-user Console Application
+### Overview
+The Library Management System was refactored into a layered architecture to improve maintainability, separation of concerns, and support for multiple users.
 
-Planned improvements:
+### Architecture
+- **Models:** Defines User and Book entities.
+- **Repositories:** Handles JSON file storage and data retrieval.
+- **Services:** Contains business logic, validation, authentication, and ownership checks.
+- **Presentation:** Provides console menus and user interaction.
 
-- Presentation layer
-- Service layer
-- Repository/data access layer
-- User registration
-- Login and logout
-- Current user
-- Validation
-- User-specific data ownership
+### Features
+- User registration and login
+- Secure password hashing
+- Logout and current-user tracking
+- Personal book libraries
+- Add, list, search, and delete books
+- Borrow and return books
+- User-specific data access and ownership validation
+- JSON persistence
+
+### Testing
+Successfully tested registration, login, book operations, borrowing and returning, multi-user isolation, and unauthorized deletion protection.
+
+### Technologies
+- C#
+- .NET 10
+- JSON
+- Object-Oriented Programming
+- Layered Architecture
+
 
 ### Milestone 04 — Database Application
 
