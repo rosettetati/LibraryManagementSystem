@@ -5,4 +5,5 @@
   <Project Path="Milestone01_BasicConsole/Milestone01_BasicConsole.csproj" />
   <Project Path="Milestone02_OOP/Milestone02_OOP.csproj" Id="c792929b-d600-4583-b17a-d28c3493c29a" />
   <Project Path="Milestone03_LayeredConsole/Milestone03_LayeredConsole.csproj" Id="d389729e-d976-47fb-bd8c-6f195415d8e1" />
+  <Project Path="Milestone04_Database/Milestone04_Database.csproj" Id="f8fcd116-4f0b-4d2a-9ae6-657c444ff73d" />
 </Solution>

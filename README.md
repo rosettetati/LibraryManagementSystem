@@ -170,16 +170,92 @@ Successfully tested registration, login, book operations, borrowing and returnin
 - Layered Architecture
 
 
-### Milestone 04 — Database Application
+### Milestone 04 – Database Integration
 
-Planned improvements:
+**Status: Completed**
 
-- Relational database
-- SQL tables
-- Primary and foreign keys
-- Relationships between users, books, and borrowing records
-- Dapper database access
-- SQL CRUD operations
+Milestone 04 upgrades the Library Management System from JSON file storage to a relational SQLite database using Entity Framework Core.
+
+#### Technologies
+- C#
+- .NET 10
+- Entity Framework Core 10
+- SQLite
+
+#### Database Structure
+
+The application uses two main database tables:
+
+**Users**
+- `Id` – Primary key
+- `Username` – Unique username
+- `PasswordHash` – Securely hashed password
+
+**Books**
+- `Id` – Primary key
+- `Title` – Book title
+- `Author` – Book author
+- `Genre` – Book genre
+- `PublicationYear` – Year of publication
+- `IsAvailable` – Borrowing status
+- `UserId` – Foreign key referencing `Users.Id`
+
+The relationship between the tables is one-to-many: one user can own multiple books, and each book belongs to one user.
+
+#### Database Features
+- SQLite database creation and initialization using Entity Framework Core.
+- Entity classes mapped to relational database tables.
+- Unique username constraint.
+- Required fields for book title and author.
+- Foreign key relationship between users and books.
+- Cascade deletion of a user's books when that user is deleted.
+- Repository classes for database operations.
+- LINQ queries for retrieving, searching, and filtering records.
+- User-specific book access and ownership checks.
+- Password hashing using PBKDF2 with SHA-256.
+
+#### SQL and Database Concepts
+
+Entity Framework Core translates LINQ queries into SQL statements executed by SQLite.
+
+Examples of the equivalent SQL operations include:
+
+```sql
+-- Retrieve books belonging to a user
+SELECT * FROM Books
+WHERE UserId = 1;
+
+-- Search books by title or author
+SELECT * FROM Books
+WHERE UserId = 1
+AND (Title LIKE '%Hobbit%'
+     OR Author LIKE '%Hobbit%');
+
+-- Update a book's availability
+UPDATE Books
+SET IsAvailable = 0
+WHERE Id = 1 AND UserId = 1;
+
+-- Delete a user's book
+DELETE FROM Books
+WHERE Id = 1 AND UserId = 1;
+```
+
+These examples illustrate the SQL operations represented by the application's Entity Framework queries.
+
+#### Testing
+The following functionality was tested successfully:
+- Database initialization.
+- User registration and login.
+- Adding and listing books.
+- Searching by title and author.
+- Borrowing and returning books.
+- Deleting books.
+- Persistent storage in SQLite.
+- Isolation of books between different users.
+- Prevention of unauthorized access to another user's books.
+
+**Result:** Milestone 04 successfully introduces relational database storage and Entity Framework Core into the Library Management System.
 
 ### Milestone 05 — Basic Web API
 
